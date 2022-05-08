@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="471.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <BorderPane prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="BOTTOM_CENTER">
+               <children>
+                  <ImageView fx:id="arrows" fitHeight="200.0" fitWidth="200.0" nodeOrientation="INHERIT" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../img/giphy.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </center>
+         <bottom>
+            <VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" minHeight="-Infinity" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="takePhoto" fitHeight="150.0" fitWidth="150.0" nodeOrientation="INHERIT" onMouseClicked="#captured" opacity="0.58" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/camera.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+         </bottom>
+      </BorderPane>
+      <Pane fx:id="optionPanel" layoutX="-200.0" layoutY="80.0" minHeight="493.0" prefHeight="300.0" prefWidth="200.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="200.0">
+               <children>
+                  <Label maxWidth="150.0" text="Email відправника" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="SendersEmail" maxWidth="150.0" prefWidth="100.0" promptText="Example@mail.com">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></TextField>
+                  <Label layoutX="52.0" layoutY="10.0" maxWidth="150.0" text="Пароль до Email " textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <PasswordField fx:id="pass" maxWidth="150.0" />
+                  <Label layoutX="52.0" layoutY="10.0" maxWidth="150.0" text="Тема листа" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <TextField fx:id="emailSubject" maxWidth="150.0" prefWidth="150.0" promptText="Введіть тему листа" />
+                  <Label layoutX="75.0" layoutY="101.0" prefWidth="150.0" text="Текст листа" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <TextArea fx:id="emailText" maxHeight="150.0" maxWidth="150.0" prefHeight="150.0" prefWidth="150.0" promptText="Дякуємо, що відвідали наш стенд" />
+                  <Label layoutX="35.0" layoutY="172.0" prefWidth="150.0" text="Вкладення" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <HBox alignment="CENTER" maxHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="pdfIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../img/clip.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="filePath" promptText="/назва файлу">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin></TextField>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#chooseFile" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/plus-sign.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#saveMailParameters" text="Зберегти">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <ImageView fx:id="logo" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#openBallPanel" opacity="0.58" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="80.0">
+         <image>
+            <Image url="@../img/hlr_logo.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="ballPanel" prefHeight="179.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="-95.0" AnchorPane.rightAnchor="80.0">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" prefWidth="100.0">
+               <children>
+                  <Label text="Розмір" />
+                  <Slider fx:id="ballSize" majorTickUnit="100.0" maxWidth="80.0" minorTickCount="1" showTickLabels="true" value="50.0" />
+                  <Label layoutX="41.0" layoutY="160.0" text="Швидкість" />
+                  <Slider fx:id="ballSpeed" layoutX="20.0" layoutY="160.0" majorTickUnit="100.0" maxWidth="80.0" minorTickCount="1" showTickLabels="true" value="50.0" />
+                  <Label layoutX="41.0" layoutY="110.0" text="Прозорість" />
+                  <Slider fx:id="ballOpacity" layoutX="20.0" layoutY="160.0" majorTickUnit="100.0" maxWidth="80.0" minorTickCount="1" showTickLabels="true" value="50.0" />
+                  <Button fx:id="runBall" mnemonicParsing="false" onAction="#addBouncyBall" text="Запустити" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <ImageView fx:id="emailBtn" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#openOptionPanel" opacity="0.58" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="3.0">
+         <image>
+            <Image url="@../img/email.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ball" fitHeight="150.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="100.0">
+         <image>
+            <Image url="@../img/hlr_logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="closeButton" fitHeight="10.0" fitWidth="10.0" onMouseClicked="#closeButton" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <image>
+            <Image url="@../img/close.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="capturedPane" alignment="CENTER" onMouseClicked="#hideCapturedPhoto" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <ImageView fx:id="photo" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="recipientsEmail" alignment="CENTER" maxWidth="500.0" promptText="Введіть свою пошту">
+               <VBox.margin>
+                  <Insets bottom="20.0" top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </TextField>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#sendEmail" text="Отримати фото">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
